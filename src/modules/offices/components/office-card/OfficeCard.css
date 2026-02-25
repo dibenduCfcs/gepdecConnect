@@ -1,0 +1,276 @@
+.office-card {
+  width: 100%;
+  max-width: 439px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.office-card-top {
+  height: 4px;
+  background: linear-gradient(90deg, #da8f1c 0%, #79c151 100%);
+}
+
+.office-card-content {
+  padding: 18px;
+  background: #ffffff;
+}
+
+.office-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.office-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.office-card-title-wrap h3 {
+  margin: 0;
+  color: var(--background);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.office-card-title-icon {
+  padding: 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbf1e3;
+  color: #de9728;
+}
+
+.office-card-tag {
+  border: 1px solid rgba(233, 140, 32, 0.4);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #e98c20;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  background-color: var(--primary-light);
+}
+
+.office-location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin-top: 18px;
+  background: #f0f0f0;
+  color: #6d7f95;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.office-location-pill i {
+  color: #79c151;
+}
+
+.office-card-divider {
+  border-top: 1px solid #e7e7e7;
+  margin-top: 17px;
+  margin-bottom: 17px;
+}
+
+.office-card-details {
+  display: grid;
+  gap: 12px;
+}
+
+.office-card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.office-card-row-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f0;
+  color: #de9728;
+  flex-shrink: 0;
+}
+
+.office-card-row:nth-child(2) .office-card-row-icon,
+.office-card-row:nth-child(4) .office-card-row-icon {
+  color: #78bc51;
+  background: #eff7ea;
+}
+
+.office-card-row-body {
+  display: grid;
+  gap: 5px;
+}
+
+.office-card-row-label {
+  margin: 0;
+  color: #70839a;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.office-card-row-value {
+  margin: 0;
+  color: #1b1f23;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.office-card-actions {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.office-btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 10px 35px;
+}
+
+.office-btn-primary {
+  background: #e98c20;
+  color: #ffffff;
+}
+
+.office-btn-primary:hover {
+  background: #d77f18;
+}
+
+.office-btn-outline {
+  border-color: rgba(121, 193, 81, 0.7);
+  background: #edf5e8;
+  color: #579e33;
+}
+
+.office-btn-outline:hover {
+  background: #e6f1df;
+}
+
+.office-btn-icon {
+  padding: 11px;
+  border: 0;
+  border-radius: 8px;
+  background: #edf0ef;
+  color: #8799ad;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+} 
+
+.office-btn-icon:hover {
+  background: #e5e9e8;
+}
+
+@media (max-width:1360px) {
+  .office-card {
+    max-width: 382px;
+  }
+  .office-btn{
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width:1200px) {
+  .office-card {
+    max-width: 358px;
+  }
+   .office-btn{
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 560px) {
+  .office-card{
+    max-width: 343px;
+  }
+  .office-card-divider{
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  .office-card-details {
+    gap: 6px;
+  }
+  .office-card-row-body {
+    gap: 2px;
+  }
+  .office-card-content {
+    padding: 14px;
+  }
+
+  .office-card-title-wrap h3 {
+    font-size: 12px;
+  }
+
+  .office-card-tag {
+    background-color: var(--primary-light);
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+
+  .office-card-row-label {
+    font-size: 14px;
+  }
+
+  .office-card-row-value {
+    font-size: 13px;
+  }
+
+  .office-card-actions {
+    gap:10px;
+    flex-wrap: wrap;
+  }
+  .office-btn{
+    padding: 10px 15px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 350px) {
+  .office-card{
+    max-width: 300px;
+  }
+   .office-card-divider{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .office-card-actions {
+    gap:6px;
+    flex-wrap: wrap;
+  }
+  .office-btn {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+}

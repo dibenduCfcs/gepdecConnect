@@ -1,0 +1,78 @@
+@import url('./static/fonts.css');
+
+:root {
+  --primary:#E98C20;
+  --secondary:#79C151;
+  --tertiary:#C17AE0;
+  --light-red:#F8E2E2;
+  --dark-red:#FF7D6A;
+  --dark-blue:#336AEA;
+  --mint-green:#52D999;
+  --cape-honey:#FFE6A7;
+  --shiny-pearl:#FFF6E5;
+  --light-green:#E2F8E9;
+  --background:#121F0A;
+  --light-gray:#FAFAFA;
+  --black-60:#00000099;
+  --black-32:#00000052;
+  --text-secondary:#62748E;
+  --primary-light:#FFF3E0;
+  --background-color:#F2F2F2;
+  --danger:#FB2C36;
+  --info:#336AEA; /* better than grey for info */
+  --warning:#FE9A00;
+  --body-font: Inter, system-ui, sans-serif;
+  --heading-font: PlusJakartaSans, system-ui, sans-serif;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--background-color);
+  color: #111827;
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.max-width-screen{
+  max-width: 1440px;
+  margin: auto;
+  padding: auto;
+}
+
+p, span, a{
+  font-family: var(--body-font);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+

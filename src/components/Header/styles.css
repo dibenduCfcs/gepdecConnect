@@ -1,0 +1,191 @@
+:root {
+  --header-height: 58px;
+  --header-blue: #1f8fe5;
+  --brand-orange: #f39b21;
+  --brand-green: #89a937;
+}
+
+.header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  padding: 0 40px;
+  background: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--brand-orange);
+  border-radius: 50%;
+  position: relative;
+}
+
+.brand-stem {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  left: 50%;
+  top: 7px;
+  margin-left: -4px;
+  border: 2px solid var(--brand-green);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 0;
+}
+
+.brand-stem--left {
+  transform: translateX(-6px) scale(0.8);
+}
+
+.brand-stem--right {
+  transform: translateX(6px) scale(0.8);
+}
+
+.brand-text {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
+}
+
+.logo{
+  width: 164px;
+  height: 38px;
+}
+
+.brand-main {
+  color: var(--brand-orange);
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.brand-sub {
+  color:var(--text-secondary);
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.header-nav-item {
+  color: var(--background);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.header-nav-item.active {
+  color:var(--secondary);
+}
+
+.header-caret {
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bell-btn,
+.avatar-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bell-btn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.bell-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e43f3f;
+  position: absolute;
+  top: -2px;
+  right: 2px;
+}
+
+.avatar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  background: linear-gradient(145deg, #2f4f65, #a87754);
+}
+
+@media (max-width: 1100px) {
+ .header-nav {
+    gap: 45px;
+  }
+  .header-nav-item {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-nav {
+    gap: 30px;
+  }
+  .logo{
+    width: 130px;
+    height: 30px;
+  }
+
+  .header-nav-item {
+    font-size: 12px;
+  }
+
+  .brand-main {
+    font-size: 28px;
+  }
+
+  .brand-sub {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 868px) {
+  .header-bar {
+    padding: 0 16px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+}
