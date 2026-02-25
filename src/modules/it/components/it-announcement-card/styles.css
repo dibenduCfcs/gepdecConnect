@@ -1,0 +1,80 @@
+.it-annoucement-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid #e8edf2;
+  background: #fff;
+  padding: 21px;
+}
+
+.it-anc-title-cat-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.it-anc-title {
+  display: flex;
+  width: 100%;
+  color: #121f0a;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.it-anc-round-card-con {
+  display: flex;
+  padding: 2px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 33554400px;
+  background: #fff4e5;
+}
+
+.it-anc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #e98c20;
+}
+
+.inc-anc-label {
+  color: #c4710a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.it-anc-mis {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+
+.it-anc-date-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.it-anc-date {
+  color: #62748e;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.it-anc-description {
+  color: #62748e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+}
