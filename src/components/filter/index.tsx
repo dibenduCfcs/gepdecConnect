@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
+import { useEffect, useState } from 'react';
+import './styles.css';
+import FilterCount from '../filter-count';
 interface Props {
   children?: React.ReactNode;
   isHeaderVisible?: boolean;
@@ -7,44 +8,34 @@ interface Props {
 }
 
 const MOBILE_BREAKPOINT = 768;
-const Filter: React.FC<Props> = ({
-  children,
-  isHeaderVisible = false,
-  buttonText = "Filter",
-}) => {
+const Filter: React.FC<Props> = ({ children, isHeaderVisible = false, buttonText = 'Filter' }) => {
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined"
-      ? window.innerWidth <= MOBILE_BREAKPOINT
-      : false,
+    typeof window !== 'undefined' ? window.innerWidth <= MOBILE_BREAKPOINT : false
   );
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <div className="filter-container max-width-screen">
       {isHeaderVisible && (
         <div className="filter-top">
-          <h3>{"Filter Projects"}</h3>
-          <span className="filter-count">
-            {"Showing"} <span className="filter-count-active">{"12"}</span>{" "}
-            {"of"}
-            <span> {"12"}</span> {"projects"}
-          </span>
+          <h3>{'Filter Projects'}</h3>
+          <FilterCount count={12} totalCount={12} />
         </div>
       )}
       <div
         style={{
-          display: "flex",
-          justifyContent: isMobile ? "flex-end" : "flex-start",
-          width: "100%",
-          flexWrap: "wrap",
-          gap: "12px",
+          display: 'flex',
+          justifyContent: isMobile ? 'flex-end' : 'flex-start',
+          width: '100%',
+          flexWrap: 'wrap',
+          gap: '12px',
         }}
       >
         {isMobile ? (

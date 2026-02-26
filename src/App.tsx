@@ -6,6 +6,7 @@ import { MenuContextProvider } from "./context/MenuContext";
 import Breadcrmb from "./components/breadcrmb/Breadcrmb";
 import OfficeList from "./modules/offices/office-list";
 import Home from "./modules/Home";
+import ITAnnouncements from "./modules/it";
 
 function App() {
   return (
@@ -19,16 +20,7 @@ function App() {
             <Route
               path="/it"
               element={
-                <div>
-                  <Breadcrmb
-                    items={[
-                      { label: "Dashboard", path: "/" },
-                      { label: "Projects", path: "/projects" },
-                      { label: "Project Details" },
-                    ]}
-                  />
-                  jklJKLFJKLASDGLJK
-                </div>
+                <ITAnnouncements/>
               }
             />
             <Route
