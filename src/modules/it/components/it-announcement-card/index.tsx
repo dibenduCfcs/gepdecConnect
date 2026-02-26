@@ -1,7 +1,7 @@
-import type React from 'react';
-import './styles.css';
-import calendar from '../../../../assets/calendar.svg';
-import ReadMoreCard from '../../../../components/read-more';
+import type React from "react";
+import "./styles.css";
+import calendar from "../../../../assets/calendar.svg";
+import ReadMoreCard from "../../../../components/read-more";
 
 interface Props {
   id: number;
@@ -41,9 +41,11 @@ const ITAnnouncementCard: React.FC<Props> = (props) => {
           <img src={calendar} alt="calendar" />
           <span className="it-anc-date">{props.date}</span>
         </div>
-        {renderRoundedCard(props.priority)}
-        {renderRoundedCard(props.status, false)}
-        {renderRoundedCard(props.affectedSystem, false, false)}
+        <div className="it-anc-date-con">
+          {renderRoundedCard(props.priority)}
+          {renderRoundedCard(props.status, false)}
+          {renderRoundedCard(props.affectedSystem, false, false)}
+        </div>
       </div>
       <ReadMoreCard value={props.description} />
     </div>

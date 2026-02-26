@@ -33,3 +33,13 @@
   cursor: pointer;
   padding: 0;
 }
+
+@media (max-width:575px) {
+  .read-more-btn{
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .it-anc-description{
+    font-size: 12px;
+  }
+}

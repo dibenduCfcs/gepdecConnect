@@ -1,7 +1,14 @@
+import Slider, { type Settings } from "react-slick";
 import CalloutCard from "./components/callout-card";
 import warning from "../../assets/warning.svg";
+import rightArrow from "../../assets/rightArrow.svg";
+import dummy_project1 from "../../assets/image/dummy_project1.png";
+import dummy_project2 from "../../assets/image/dummy_project2.png";
+import dummy_project3 from "../../assets/image/dummy_project3.png";
 import "./styles.css";
 import LatestAnnoucementCard from "./components/latest-annoucement-card";
+import ProjectCard from "../../components/project-card";
+import Map from "../../components/map";
 
 const impNotice = [
   {
@@ -40,6 +47,125 @@ const latestAnnouncement = [
     description: "The 4th floor pantry will be closed for maintenance.",
   },
 ];
+const projectUpdates = [
+  {
+    projectId: 1,
+    projectIcon: dummy_project1,
+    status: "On Track",
+    statusId: 101,
+    lastUpdate: "20 Feb, 2026",
+    projectName: "400 kV GIS Station for UPPTCL",
+    location: {
+      city: "Jaunpur",
+      cityId: 201,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+  {
+    projectId: 2,
+    projectIcon: dummy_project2,
+    status: "Delayed",
+    statusId: 102,
+    lastUpdate: "15 Feb, 2026",
+    projectName: "220/33 kV GIS Station for UPPTCL",
+    location: {
+      city: "Noida",
+      cityId: 202,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+  {
+    projectId: 3,
+    projectIcon: dummy_project3,
+    status: "On Track",
+    statusId: 101,
+    lastUpdate: "18 Feb, 2026",
+    projectName: "132 kV Substation for PGCIL",
+    location: {
+      city: "Lucknow",
+      cityId: 203,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+  {
+    projectId: 4,
+    projectIcon: dummy_project1,
+    status: "Delayed",
+    statusId: 102,
+    lastUpdate: "10 Feb, 2026",
+    projectName: "765 kV Transmission Line for PGCIL",
+    location: {
+      city: "Varanasi",
+      cityId: 204,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+  {
+    projectId: 5,
+    projectIcon: dummy_project2,
+    status: "On Track",
+    statusId: 101,
+    lastUpdate: "22 Feb, 2026",
+    projectName: "400 kV AIS Station for UPPTCL",
+    location: {
+      city: "Kanpur",
+      cityId: 205,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+  {
+    projectId: 6,
+    projectIcon: dummy_project3,
+    status: "Delayed",
+    statusId: 102,
+    lastUpdate: "12 Feb, 2026",
+    projectName: "220 kV Substation Expansion for UPPTCL",
+    location: {
+      city: "Ghaziabad",
+      cityId: 206,
+      state: "Uttar Pradesh",
+      stateId: 301,
+      country: "India",
+      countryId: 401,
+    },
+    reportLink: "View Report",
+  },
+];
+
+const sliderSettings: Settings = {
+  dots: true,
+  infinite: false,
+  speed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 5000,
+  pauseOnHover: true,
+  easing: "ease-in-out",
+  variableWidth: true,
+  swipe: true,
+  arrows: false,
+};
 
 const Home = () => {
   const getCalloutType = (priority: number) => {
@@ -55,15 +181,26 @@ const Home = () => {
 
   const renderLatestAnnouncement = () => {
     return (
-      <div className="latest-anncoucement-container">
-        {latestAnnouncement.map((item) => (
-          <LatestAnnoucementCard
-            date={item.date}
-            department={item.department}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
+      <div className="latest-announcement">
+        <div className="latest-announcement-title-block">
+          <h2 className="latest-announcement-title">
+            {"Latest Announcements"}
+          </h2>
+          <div className="latest-announcement-view-all">
+            <span>View All</span>
+            <img src={rightArrow} alt="right-arrow" />
+          </div>
+        </div>
+        <div className="latest-anncoucement-container">
+          {latestAnnouncement.map((item) => (
+            <LatestAnnoucementCard
+              date={item.date}
+              department={item.department}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
       </div>
     );
   };
@@ -96,6 +233,15 @@ const Home = () => {
         {renderLatestAnnouncement()}
         {renderImpNotice()}
       </div>
+      <div className="project-updates">
+        <h2 className="project-updates-title">{"Weekly Project Updates"}</h2>
+        <Slider {...sliderSettings} className="custom-slider">
+          {projectUpdates.map((item) => (
+            <ProjectCard key={item.projectId} {...item} />
+          ))}
+        </Slider>
+      </div>
+      <Map />
     </div>
   );
 };

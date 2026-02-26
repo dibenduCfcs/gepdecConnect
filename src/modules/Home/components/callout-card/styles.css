@@ -4,7 +4,9 @@
     justify-content: flex-start;
     border-radius: 6px;
     padding: 22px;
-    max-width: 453px;
+    /* min-width: 453px; */
+    width: 100%;
+    margin: 0 auto;
     border-top: 1px solid #e9ecef;
     border-right: 1px solid #e9ecef;
     border-bottom: 1px solid #e9ecef;

@@ -1,13 +1,17 @@
+.it-anc {
+  /* padding: 0px 40px; */
+}
 .it-anc-container {
   display: flex;
   gap: 25px;
   padding: 0px 40px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .it-anc-left-container {
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
 }
 
 .it-anc-filter-head-con {
@@ -20,6 +24,10 @@
   border-bottom: 1px solid #e8edf2;
   background: linear-gradient(135deg, #fff8ee 0%, #fffcf7 100%);
   border-radius: 8px 8px 0px 0px;
+}
+
+.accordion-container {
+  margin-top: 0px;
 }
 
 .it-anc-filter-head-con p {
@@ -56,4 +64,71 @@
 .it-anc-filter-con span:last-of-type {
   color: #62748e;
   font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .it-anc-filter-head-con p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .it-anc-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .it-anc-left-container > *:not(.it-anc-filter-head-con) {
+    overflow: scroll;
+  }
+  .it-anc-filter-head-con {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+  }
+  .accordion-container {
+    margin-top: 52px;
+    margin-bottom: 52px;
+  }
+
+  .it-anc-render-left {
+    display: none;
+  }
+  .it-anc-left-container {
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
+
+  .it-anc-mobile-filter {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: #fff;
+    gap: 16px;
+    padding: 8px 4px;
+    border-radius: 4px;
+  }
+  .btn-custom-sm {
+    font-size: 12px;
+  }
+  .btn-container {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 10px;
+    border: 1px solid #e8edf2;
+    border-radius: 4px;
+  }
+  .btn-custom {
+    width: 45%;
+  }
+}
+
+@media (max-width: 575px) {
+  .it-anc-container {
+    padding: 0px 15px;
+    margin-bottom: 16px;
+  }
 }

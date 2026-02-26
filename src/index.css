@@ -1,34 +1,34 @@
-@import url('./static/fonts.css');
+@import url("./static/fonts.css");
 
 :root {
-  --primary:#E98C20;
-  --secondary:#79C151;
-  --tertiary:#C17AE0;
-  --light-red:#F8E2E2;
-  --dark-red:#FF7D6A;
-  --dark-blue:#336AEA;
-  --mint-green:#52D999;
-  --cape-honey:#FFE6A7;
-  --shiny-pearl:#FFF6E5;
-  --light-green:#E2F8E9;
-  --background:#121F0A;
-  --light-gray:#FAFAFA;
-  --black-60:#00000099;
-  --black-32:#00000052;
-  --text-secondary:#62748E;
-  --primary-light:#FFF3E0;
-  --background-color:#F2F2F2;
-  --danger:#FB2C36;
-  --info:#336AEA; /* better than grey for info */
-  --warning:#FE9A00;
+  --primary: #e98c20;
+  --secondary: #79c151;
+  --tertiary: #c17ae0;
+  --light-red: #f8e2e2;
+  --dark-red: #ff7d6a;
+  --dark-blue: #336aea;
+  --mint-green: #52d999;
+  --cape-honey: #ffe6a7;
+  --shiny-pearl: #fff6e5;
+  --light-green: #e2f8e9;
+  --background: #121f0a;
+  --light-gray: #fafafa;
+  --black-60: #00000099;
+  --black-32: #00000052;
+  --text-secondary: #62748e;
+  --primary-light: #fff3e0;
+  --background-color: #f2f2f2;
+  --danger: #fb2c36;
+  --info: #336aea; /* better than grey for info */
+  --warning: #fe9a00;
   --body-font: Inter, system-ui, sans-serif;
   --heading-font: PlusJakartaSans, system-ui, sans-serif;
 }
 
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 *,
@@ -53,20 +53,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font);
   line-height: 1.5;
   margin: 0;
   padding: 0;
 }
 
-.max-width-screen{
+.max-width-screen {
   max-width: 1440px;
   margin: auto;
   padding: auto;
 }
 
-p, span, a{
+p,
+span,
+a {
   font-family: var(--body-font);
   margin: 0;
   padding: 0;
@@ -76,3 +83,38 @@ a {
   text-decoration: none;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

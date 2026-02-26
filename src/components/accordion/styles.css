@@ -1,0 +1,74 @@
+/* Remove outer accordion border */
+.accordion {
+  border: none !important;
+}
+
+/* Remove item border */
+.accordion-item {
+  border: none !important;
+}
+
+/* Remove header button border */
+.accordion-button {
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  color: #62748e;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 6px 16px !important;
+}
+
+.custom-accordion-btn {
+  border: 1px solid black;
+}
+
+/* Remove collapse wrapper border */
+.accordion-collapse {
+  border: none !important;
+}
+
+/* Remove bottom divider line */
+.accordion-item:not(:first-of-type) {
+  border-top: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: white;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+/* remove default bootstrap arrow */
+.accordion-button::after {
+  display: none !important;
+}
+
+/* layout */
+.custom-accordion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* arrow animation */
+.accordion-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+/* rotate when open */
+.accordion-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  padding: 0 auto !important;
+}
