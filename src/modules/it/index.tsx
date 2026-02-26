@@ -7,7 +7,7 @@ import Accordion from "../../components/accordion";
 import CheckBox from "../../components/check-box";
 import RadioButton from "../../components/radio-button";
 import Overlay from "../../components/overlay";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DropdownBox from "../../components/dropdown-box";
 import { useWindowDimension } from "../../hook";
 

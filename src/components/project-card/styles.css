@@ -1,59 +1,80 @@
-.project-card-container{    
-    max-width: 442px;
-    display: flex;
-    flex-direction: column;
-    padding: 1px;
-    border-radius: 14px;
-    border: 1px solid #E2E8F0;
-    background: #FFF;
-    margin: 0 8px;
+.project-card-container {
+  max-width: 442px;
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  margin: 0 8px;
 }
 
-
-.project-icon{
-    height: 229px;
-    border-radius: 14px 14px 0px 0px;
-    object-fit: fill;
+.project-icon {
+  height: 229px;
+  border-radius: 14px 14px 0px 0px;
+  object-fit: fill;
 }
-.project-bottom-container{
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 9px;
-    flex-shrink: 0;
-    align-self: stretch;
+.project-bottom-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 9px;
+  flex-shrink: 0;
+  align-self: stretch;
 }
-.project-location-container{
-    display: flex;
-    gap: 8px;
-}
-
-.project-title{
-    color: var(--black, #121F0A);
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 27px; 
+.project-location-container {
+  display: flex;
+  gap: 8px;
 }
 
-.project-location{
-    color: #62748E;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px; 
+.project-title {
+  color: var(--black, #121f0a);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
 }
 
-.project-view-report{
-    display: flex;
-    padding: 9px 0;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 10px;
-    border: 1px solid #E2E8F0;
-    background: #F8FAFC;
-    color: var(--black, #121F0A);
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
+.project-location {
+  color: #62748e;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.project-view-report {
+  display: flex;
+  padding: 9px 0;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: var(--black, #121f0a);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@media (max-width: 575px) {
+  .project-card-container {
+    max-width: 250px;
+  }
+  .project-icon {
+    height: 178px;
+    border-radius: 8px 8px 0px 0px;
+  }
+  .project-title {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .project-location {
+    font-size: 12px;
+  }
+  .project-view-report {
+    font-size: 12px;
+    padding: 5px 0;
+    border-radius: 6px;
+  }
 }

@@ -1,11 +1,5 @@
 // components/IndiaMap.tsx
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { customIcon } from "../../utils/customIcon";
 import "./styles.css";
@@ -31,22 +25,13 @@ const locations = [
 
 export default function Map() {
   return (
-    <MapContainer
-      center={[22.9734, 78.6569]} // Center of India
-      zoom={5}
-      zoomControl={false}
-      style={{ height: "777.95px", width: "100%" }}
-    >
+    <MapContainer center={[22.9734, 78.6569]} zoom={5} zoomControl={false} className="india-map">
       <ZoomControl position="bottomright" />
       <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}" />
 
       <MarkerClusterGroup chunkedLoading>
         {locations.map((loc) => (
-          <Marker
-            key={loc.id}
-            position={loc.position as [number, number]}
-            icon={customIcon}
-          >
+          <Marker key={loc.id} position={loc.position as [number, number]} icon={customIcon}>
             <Popup>
               <div className="popup-card">
                 <h3>{loc.name}</h3>
