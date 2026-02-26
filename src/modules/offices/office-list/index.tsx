@@ -67,19 +67,13 @@ const OfficeList = () => {
     return (
       <div className="render-left-container">
         <img src={filterIcon} alt="filter-icon" />
-        <span className="render-left-title">Filters:</span>
+        <span className="render-left-title">{"Filters:"}</span>
       </div>
     );
   };
   return (
     <div className="office-list max-width-screen">
-      <Breadcrmb
-        items={[
-          { label: "Dashboard", path: "/" },
-          { label: "Projects", path: "/projects" },
-          { label: "Project Details" },
-        ]}
-      />
+      <Breadcrmb items={[{ label: "Home", path: "/" }, { label: "Offices" }]} />
       <CorporateCard />
       <Filter>
         <InputBox width={"443.578px"} />
@@ -90,11 +84,7 @@ const OfficeList = () => {
           placeholder="Select State"
         />
 
-        <DropdownBox
-          options={officeType}
-          width={"221.78px"}
-          placeholder="All Office Types"
-        />
+        <DropdownBox options={officeType} width={"221.78px"} placeholder="All Office Types" />
       </Filter>
       <div className="office-list-section">
         <h3>{"12 Offices"}</h3>

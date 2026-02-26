@@ -1,0 +1,84 @@
+.sidebar-mobile-filter {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  background-color: #fff;
+  gap: 16px;
+  padding: 8px 4px;
+  border-radius: 4px;
+}
+
+.sidebar-left-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.sidebar-filter-head-con {
+  display: flex;
+  height: 49px;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-bottom: 1px solid #e8edf2;
+  background: linear-gradient(135deg, #fff8ee 0%, #fffcf7 100%);
+  border-radius: 8px 8px 0px 0px;
+}
+
+.sidebar-filter-head-con p {
+  color: #121f0a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.accordion-container {
+  margin-top: 0px;
+}
+
+@media (max-width: 992px) {
+  .sidebar-filter-head-con p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-left-container > *:not(.sidebar-filter-head-con) {
+    overflow: scroll;
+  }
+  .sidebar-left-container {
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
+  .sidebar-render-left {
+    display: none;
+  }
+
+  .sidebar-filter-head-con {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+  }
+  .sidebar-left-container .accordion-container {
+    margin-top: 52px;
+    margin-bottom: 52px;
+  }
+  .sidebar-left-container .btn-container {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 10px;
+    border: 1px solid #e8edf2;
+    border-radius: 4px;
+  }
+  .sidebar-left-container .btn-custom-sm {
+    font-size: 12px;
+  }
+  .sidebar-left-container .btn-custom {
+    width: 45%;
+  }
+}
