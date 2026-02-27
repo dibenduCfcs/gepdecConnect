@@ -83,18 +83,18 @@
   line-height: 22.75px;
 }
 
-@media (max-width:575px) {
-  .it-anc-description{
+@media (max-width: 575px) {
+  .it-anc-description {
     font-size: 12px;
   }
-  .it-anc-title{
+  .it-anc-title {
     font-size: 14px;
   }
-  .inc-anc-label{
+  .inc-anc-label {
     font-size: 12px;
-    white-space:unset;
+    white-space: unset;
   }
-  .it-anc-date{
+  .it-anc-date {
     font-size: 11px;
   }
 }

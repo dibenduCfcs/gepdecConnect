@@ -1,14 +1,14 @@
 import Slider, { type Settings } from "react-slick";
-import CalloutCard from "./components/callout-card";
 import warning from "../../assets/warning.svg";
 import rightArrow from "../../assets/rightArrow.svg";
 import dummy_project1 from "../../assets/image/dummy_project1.png";
 import dummy_project2 from "../../assets/image/dummy_project2.png";
 import dummy_project3 from "../../assets/image/dummy_project3.png";
 import "./styles.css";
-import LatestAnnoucementCard from "./components/latest-annoucement-card";
 import ProjectCard from "../../components/project-card";
 import Map from "../../components/map";
+import CalloutCard from "./components/callout-card";
+import LatestAnnoucementCard from "./components/latest-annoucement-card";
 
 const impNotice = [
   {
@@ -183,9 +183,7 @@ const Home = () => {
     return (
       <div className="latest-announcement">
         <div className="latest-announcement-title-block">
-          <h2 className="latest-announcement-title">
-            {"Latest Announcements"}
-          </h2>
+          <h2 className="latest-announcement-title">{"Latest Announcements"}</h2>
           <div className="latest-announcement-view-all">
             <span>View All</span>
             <img src={rightArrow} alt="right-arrow" />

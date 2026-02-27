@@ -7,6 +7,8 @@ import RadioButton from "../../components/radio-button";
 import DropdownBox from "../../components/dropdown-box";
 import SideBar from "../../components/sidebar";
 import "./styles.css";
+import Container from "../../components/container";
+import TitleContainer from "../../components/title-con";
 
 const itAnnouncementData = [
   {
@@ -164,9 +166,14 @@ const ITAnnouncements = () => {
           { label: "IT Announcements" },
         ]}
       />
-      <div className="it-anc-container">
-        <SideBar title="Filter Announcements" onClick={(e) => e.stopPropagation()}>
-          <Accordion title="Category" showArrow={false} disabled>
+      <TitleContainer titleFirst="IT" titleLast="Announcements" />
+      <Container>
+        <SideBar
+          title="Filter Announcements"
+          leftTitle="IT Announcements"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Accordion title="Category">
             <CheckBox data={categoryData} onChange={(item) => console.log(item)} />
           </Accordion>
           <Accordion title="Priority Level">
@@ -191,7 +198,7 @@ const ITAnnouncements = () => {
           </Accordion>
         </SideBar>
 
-        <div className="it-anc-right-container">
+        <div className="right-container">
           <div className="it-anc-filter-con">
             <FilterCount count={8} totalCount={8} color="#121F0A" />
             <div className="it-anc-filter-con">
@@ -208,7 +215,7 @@ const ITAnnouncements = () => {
             })}
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

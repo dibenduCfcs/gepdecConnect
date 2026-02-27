@@ -1,12 +1,13 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./modules/login/Login";
 import Module from "./modules";
 import { MenuContextProvider } from "./context/MenuContext";
-import Breadcrmb from "./components/breadcrmb/Breadcrmb";
 import OfficeList from "./modules/offices/office-list";
-import Home from "./modules/Home";
+import Home from "./modules/home";
 import ITAnnouncements from "./modules/it";
+import CompanyPolicy from "./modules/people-team/company-policy";
+import EmployeeHandbook from "./modules/people-team/employee-handbook";
 
 function App() {
   return (
@@ -17,31 +18,13 @@ function App() {
           <Route path="/" element={<Module />}>
             <Route path="/" element={<Home />} />
             <Route path="/offices" element={<OfficeList />} />
-            <Route
-              path="/it"
-              element={
-                <ITAnnouncements/>
-              }
-            />
-            <Route
-              path="/people-team"
-              element={
-                <div>
-                  <Breadcrmb
-                    items={[
-                      { label: "People Team", path: "/people-team" },
-                      { label: "Developers", path: "/" },
-                      { label: "Ajay singh" },
-                    ]}
-                  />
-                  oijhasasjjklJKLFJKLASDGLJK
-                </div>
-              }
-            />
-            <Route
-              path="/projects"
-              element={<div>oijhasasjjklJKLFJKLASDGLJK</div>}
-            />
+            <Route path="/it" element={<ITAnnouncements />} />
+            <Route path="people-team">
+              <Route index element={<Navigate to="company-policy" replace />} />
+              <Route path="company-policy" element={<CompanyPolicy />} />
+              <Route path="employee-handbook" element={<EmployeeHandbook />} />
+            </Route>
+            <Route path="/projects" element={<div>oijhasasjjklJKLFJKLASDGLJK</div>} />
           </Route>
         </Routes>
       </BrowserRouter>

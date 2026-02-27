@@ -3,6 +3,7 @@ import "./styles.css";
 import calendar from "../../../../assets/calendar.svg";
 import ReadMoreCard from "../../../../components/read-more";
 import { Badge, BadgeDot } from "../../../../components/badge";
+import DateCon from "../../../../components/date-con";
 
 interface Props {
   id: number;
@@ -36,10 +37,7 @@ const ITAnnouncementCard: React.FC<Props> = (props) => {
     <div className="it-annoucement-card">
       {renderTitleCategory()}
       <div className="it-anc-mis">
-        <div className="it-anc-date-con">
-          <img src={calendar} alt="calendar" />
-          <span className="it-anc-date">{props.date}</span>
-        </div>
+        <DateCon icon={calendar} date={props.date} />
         <div className="it-anc-date-con">
           <Badge
             label={props.priority}

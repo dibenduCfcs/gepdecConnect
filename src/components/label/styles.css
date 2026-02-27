@@ -1,0 +1,13 @@
+.label-component {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label-component p {
+  color: #121f0a;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+}

@@ -1,77 +1,74 @@
 .breadcrmb {
-    padding: 0px 40px 10px;
+  padding: 0px 40px 10px;
 }
 
 .bTop {
-    display: flex;
-    justify-content:flex-start;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: inherit;
-    padding: 10px 0px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: inherit;
+  padding: 10px 0px;
 }
 
 .bTop h3 {
-    margin: 0;
-    font-size: 16px;
+  margin: 0;
+  font-size: 16px;
 }
 
 .breadcrumbMn ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
 }
 
 .breadcrumbMn ul li {
-    display: inline;
-    color:var(--primary);
+  display: inline;
+  color: var(--primary);
 }
 
 .breadcrumbMn ul li .fa {
-    margin: 0 4px;
-    font-size: 12px;
-
+  margin: 0 4px;
+  font-size: 12px;
 }
 
 .breadcrumbMn ul li a {
-    text-decoration: none;
-    color:var(--text-secondary);
-    cursor: pointer;
+  text-decoration: none;
+  color: var(--text-secondary);
+  cursor: pointer;
 }
 
 .breadcrumbMn ul li .fa-chevron-right {
-    color: var(--text-secondary); 
+  color: var(--text-secondary);
 }
 
-.breadcrmbNvgt{
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400px;
+.breadcrmbNvgt {
+  font-size: 16px;
+  font-weight: 400px;
 }
 
-.breadcrumbMn span{
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
+.breadcrumbMn span {
+  font-size: 16px;
+  font-weight: 400;
 }
 
-@media (max-width:868px) {
-    .breadcrmb {
-        margin: 0px 6px 10px 6px;
-    }
+@media (max-width: 868px) {
+  .breadcrmb {
+    margin: 0px 6px 10px 6px;
+  }
 }
 
-@media (max-width:575px) {
-    .breadcrmb {
-        padding: 0px 16px;
-    }
-   .breadcrmbNvgt{
+@media (max-width: 575px) {
+  .breadcrmb {
+    padding: 0px 16px;
+  }
+  .breadcrmbNvgt {
     font-size: 12px;
-}
+  }
 
-.breadcrumbMn span{
+  .breadcrumbMn span {
     font-size: 12px;
-}
+  }
 }

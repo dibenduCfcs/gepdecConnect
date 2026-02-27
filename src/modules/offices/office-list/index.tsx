@@ -1,10 +1,10 @@
+import FilterIcon from "../../../assets/custom-svg/filter";
 import Breadcrmb from "../../../components/breadcrmb/Breadcrmb";
 import DropdownBox from "../../../components/dropdown-box";
 import Filter from "../../../components/filter";
 import InputBox from "../../../components/input-box";
 import CorporateCard from "../components/corporate-card";
 import OfficeCard from "../components/office-card/OfficeCard";
-import filterIcon from "../../../assets/filter.svg";
 import "./styles.css";
 
 const stateList = [
@@ -66,7 +66,7 @@ const OfficeList = () => {
   const renderLeft = () => {
     return (
       <div className="render-left-container">
-        <img src={filterIcon} alt="filter-icon" />
+        <FilterIcon color={"#62748E"} />
         <span className="render-left-title">{"Filters:"}</span>
       </div>
     );

@@ -1,0 +1,20 @@
+.container-component {
+  display: flex;
+  gap: 25px;
+  padding: 0px 40px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .container-component {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 575px) {
+  .container-component {
+    padding: 0px 15px;
+    margin-bottom: 16px;
+  }
+}
