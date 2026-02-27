@@ -1,15 +1,12 @@
 import Breadcrmb from "../../components/breadcrmb/Breadcrmb";
 import FilterCount from "../../components/filter-count";
 import ITAnnouncementCard from "./components/it-announcement-card";
-import filter from "../../assets/filter.svg";
-import "./styles.css";
 import Accordion from "../../components/accordion";
 import CheckBox from "../../components/check-box";
 import RadioButton from "../../components/radio-button";
-import Overlay from "../../components/overlay";
-import { useState } from "react";
 import DropdownBox from "../../components/dropdown-box";
-import { useWindowDimension } from "../../hook";
+import SideBar from "../../components/sidebar";
+import "./styles.css";
 
 const itAnnouncementData = [
   {
@@ -158,27 +155,18 @@ const statusData = [
 ];
 
 const ITAnnouncements = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useWindowDimension(() => {
-    const isMobile = window.innerWidth < 768;
-    setIsMobile(isMobile);
-
-    if (!isMobile) {
-      setIsOpen(false);
-    }
-  });
-
-  const renderLeft = () => {
-    return (
-      <div className="it-anc-left-container" onClick={(e) => e.stopPropagation()}>
-        <div className="it-anc-filter-head-con">
-          <img src={filter} alt="inc-anc-filter" />
-          <p>{"Filter Announcements"}</p>
-        </div>
-        <div className="accordion-container">
-          <Accordion title="Category">
+  return (
+    <div className="it-anc max-width-screen">
+      <Breadcrmb
+        items={[
+          { label: "Home", path: "/" },
+          { label: "IT", path: "/it" },
+          { label: "IT Announcements" },
+        ]}
+      />
+      <div className="it-anc-container">
+        <SideBar title="Filter Announcements" onClick={(e) => e.stopPropagation()}>
+          <Accordion title="Category" showArrow={false} disabled>
             <CheckBox data={categoryData} onChange={(item) => console.log(item)} />
           </Accordion>
           <Accordion title="Priority Level">
@@ -201,53 +189,7 @@ const ITAnnouncements = () => {
               ]}
             />
           </Accordion>
-        </div>
-        {isMobile && (
-          <div className="btn-container">
-            <button
-              type="button"
-              className="btn btn-outline-warning btn-sm btn-custom"
-              onClick={() => setIsOpen(false)}
-            >
-              {"Clear"}
-            </button>
-            <button
-              type="button"
-              className="btn btn-warning btn-sm btn-custom"
-              onClick={() => setIsOpen(false)}
-            >
-              {"Apply"}
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  };
-  return (
-    <div className="it-anc max-width-screen">
-      <Breadcrmb
-        items={[
-          { label: "Home", path: "/" },
-          { label: "IT", path: "/it" },
-          { label: "IT Announcements" },
-        ]}
-      />
-      <div className="it-anc-container">
-        {isMobile && (
-          <div className="it-anc-mobile-filter">
-            <button
-              type="button"
-              className="btn btn-dark btn-sm btn-custom-sm"
-              onClick={() => setIsOpen(true)}
-            >
-              {"Filter Announcements"}
-            </button>
-          </div>
-        )}
-        <Overlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
-          {renderLeft()}
-        </Overlay>
-        <div className="it-anc-render-left">{renderLeft()}</div>
+        </SideBar>
 
         <div className="it-anc-right-container">
           <div className="it-anc-filter-con">

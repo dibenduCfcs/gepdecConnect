@@ -1,0 +1,30 @@
+.badge-container {
+  display: flex;
+  width: auto;
+  padding: 2px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 33554400px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.badge-label {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 575px) {
+  .badge-label {
+    font-size: 12px;
+    white-space: unset;
+  }
+}

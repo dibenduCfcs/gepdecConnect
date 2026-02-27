@@ -6,9 +6,16 @@ import "./styles.css";
 interface Props {
   children?: React.ReactNode;
   title?: string;
+  disabled?: boolean;
+  showArrow?: boolean;
 }
 
-const Accordion: React.FC<Props> = ({ children, title = "" }) => {
+const Accordion: React.FC<Props> = ({
+  children,
+  title = "",
+  disabled = false,
+  showArrow = true,
+}) => {
   const id = useId();
   const [open, setOpen] = useState(true);
 
@@ -22,11 +29,17 @@ const Accordion: React.FC<Props> = ({ children, title = "" }) => {
             data-bs-target={`#collapse-${id}`}
             aria-expanded={open}
             aria-controls={`collapse-${id}`}
-            onClick={() => setOpen(!open)}
+            onClick={() => {
+              if (!disabled) {
+                setOpen(!open);
+              }
+            }}
           >
             <span className="accordion-title">{title}</span>
 
-            <img src={arrow} alt="arrow" className={`accordion-arrow ${open ? "rotate" : ""}`} />
+            {showArrow && (
+              <img src={arrow} alt="arrow" className={`accordion-arrow ${open ? "rotate" : ""}`} />
+            )}
           </div>
         </h2>
 

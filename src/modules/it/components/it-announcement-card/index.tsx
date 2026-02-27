@@ -2,6 +2,7 @@ import type React from "react";
 import "./styles.css";
 import calendar from "../../../../assets/calendar.svg";
 import ReadMoreCard from "../../../../components/read-more";
+import { Badge, BadgeDot } from "../../../../components/badge";
 
 interface Props {
   id: number;
@@ -17,19 +18,17 @@ interface Props {
 }
 
 const ITAnnouncementCard: React.FC<Props> = (props) => {
-  const renderRoundedCard = (label: string, showDot = true, applyColor = true) => {
-    return (
-      <div className="it-anc-round-card-con">
-        {showDot && <div className="it-anc-dot" />}
-        <span className="inc-anc-label">{label}</span>
-      </div>
-    );
-  };
   const renderTitleCategory = () => {
     return (
       <div className="it-anc-title-cat-cont">
         <h3 className="it-anc-title">{props.title}</h3>
-        {renderRoundedCard(props.category)}
+        <Badge
+          label={props.category}
+          backgroundColor={"#FFF4E5"}
+          color="#C4710A"
+          dotColor="#E98C20"
+          showDot
+        />
       </div>
     );
   };
@@ -42,9 +41,17 @@ const ITAnnouncementCard: React.FC<Props> = (props) => {
           <span className="it-anc-date">{props.date}</span>
         </div>
         <div className="it-anc-date-con">
-          {renderRoundedCard(props.priority)}
-          {renderRoundedCard(props.status, false)}
-          {renderRoundedCard(props.affectedSystem, false, false)}
+          <Badge
+            label={props.priority}
+            backgroundColor={"#FFF4E5"}
+            color="#C4710A"
+            dotColor="#E98C20"
+            showDot
+          />
+          <BadgeDot dotColor="#D1D9E0" />
+          <Badge label={props.status} backgroundColor={"#EAF0FF"} color="#3B6FE0" showDot={false} />
+          <BadgeDot dotColor="#D1D9E0" />
+          <Badge label={props.affectedSystem} color="#62748E" showDot={false} />
         </div>
       </div>
       <ReadMoreCard value={props.description} />
