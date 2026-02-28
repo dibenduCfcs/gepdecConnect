@@ -8,6 +8,7 @@ import Home from "./modules/home";
 import ITAnnouncements from "./modules/it";
 import CompanyPolicy from "./modules/people-team/company-policy";
 import EmployeeHandbook from "./modules/people-team/employee-handbook";
+import ProjectAnnoucement from "./modules/project/project-annoucement";
 
 function App() {
   return (
@@ -24,7 +25,10 @@ function App() {
               <Route path="company-policy" element={<CompanyPolicy />} />
               <Route path="employee-handbook" element={<EmployeeHandbook />} />
             </Route>
-            <Route path="/projects" element={<div>oijhasasjjklJKLFJKLASDGLJK</div>} />
+            <Route path="projects">
+              <Route index element={<Navigate to="project-annoucement" replace />} />
+              <Route path="project-annoucement" element={<ProjectAnnoucement />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -8,6 +8,12 @@ interface Props {
   title?: string;
   disabled?: boolean;
   showArrow?: boolean;
+  titleClassName?: string;
+  headerClassName?: string;
+  bodyClassName?: string;
+  component?: "span" | "p" | "h3";
+  renderExtra?: () => React.ReactNode;
+  arrowColor?: string;
 }
 
 const Accordion: React.FC<Props> = ({
@@ -15,6 +21,12 @@ const Accordion: React.FC<Props> = ({
   title = "",
   disabled = false,
   showArrow = true,
+  titleClassName = "",
+  headerClassName = "",
+  bodyClassName = "",
+  component: Component = "span",
+  renderExtra = () => null,
+  arrowColor = "",
 }) => {
   const id = useId();
   const [open, setOpen] = useState(true);
@@ -22,7 +34,7 @@ const Accordion: React.FC<Props> = ({
   return (
     <div className="accordion">
       <div className="accordion-item">
-        <h2 className="accordion-header">
+        <h2 className={`accordion-header ${headerClassName}`}>
           <div
             className="accordion-button custom-accordion-btn"
             data-bs-toggle="collapse"
@@ -35,16 +47,24 @@ const Accordion: React.FC<Props> = ({
               }
             }}
           >
-            <span className="accordion-title">{title}</span>
+            <div className="accordion-title-con">
+              {renderExtra()}
+              <Component className={`accordion-title ${titleClassName}`}>{title}</Component>
+            </div>
 
             {showArrow && (
-              <img src={arrow} alt="arrow" className={`accordion-arrow ${open ? "rotate" : ""}`} />
+              <img
+                src={arrow}
+                alt="arrow"
+                className={`accordion-arrow ${open ? "rotate" : ""}`}
+                style={{ color: arrowColor }}
+              />
             )}
           </div>
         </h2>
 
         <div id={`collapse-${id}`} className="accordion-collapse collapse show">
-          <div className="accordion-body">{children}</div>
+          <div className={`accordion-body ${bodyClassName}`}>{children}</div>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import Breadcrmb from "../../components/breadcrmb/Breadcrmb";
 import FilterCount from "../../components/filter-count";
-import ITAnnouncementCard from "./components/it-announcement-card";
 import Accordion from "../../components/accordion";
 import CheckBox from "../../components/check-box";
 import RadioButton from "../../components/radio-button";
@@ -9,6 +8,7 @@ import SideBar from "../../components/sidebar";
 import "./styles.css";
 import Container from "../../components/container";
 import TitleContainer from "../../components/title-con";
+import AnnouncementCard from "../../components/announcement-card";
 
 const itAnnouncementData = [
   {
@@ -199,9 +199,9 @@ const ITAnnouncements = () => {
         </SideBar>
 
         <div className="right-container">
-          <div className="it-anc-filter-con">
+          <div className="anc-filter-con">
             <FilterCount count={8} totalCount={8} color="#121F0A" />
-            <div className="it-anc-filter-con">
+            <div className="anc-filter-con">
               <span>
                 {"Sorted by:  "}
                 <span>{"Newest First"}</span>
@@ -209,9 +209,9 @@ const ITAnnouncements = () => {
             </div>
           </div>
 
-          <div className="it-anc-list-container">
+          <div className="anc-list-container">
             {itAnnouncementData.map((item) => {
-              return <ITAnnouncementCard key={item.id} {...item} />;
+              return <AnnouncementCard key={item.id} {...item} />;
             })}
           </div>
         </div>

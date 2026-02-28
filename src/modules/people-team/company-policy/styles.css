@@ -28,3 +28,9 @@
 .toggle-slider.list {
   transform: translateX(45px);
 }
+
+@media (max-width: 992px) {
+  .cmp-hidden {
+    display: none !important;
+  }
+}
