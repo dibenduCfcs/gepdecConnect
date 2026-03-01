@@ -13,7 +13,11 @@ const Label: React.FC<Props> = ({
   color = "#121f0a",
 }) => {
   return (
-    <div className="label-component" style={{ textTransform, color }}>
+    <div
+      className="label-component"
+      style={{ textTransform, color }}
+      onClick={(e) => e.stopPropagation()}
+    >
       {title && <p>{title}</p>}
       {children}
     </div>

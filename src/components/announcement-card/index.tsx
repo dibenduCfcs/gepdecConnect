@@ -42,7 +42,9 @@ const AnnouncementCard: React.FC<Props> = (props) => {
     );
   };
   return (
-    <div className="annoucement-card">
+    <div
+      className={`annoucement-card ${cardType === "Project" ? "annoucement-card-highlight" : ""}`}
+    >
       {renderTitleCategory()}
       {cardType === "IT" && (
         <div className="anc-mis">

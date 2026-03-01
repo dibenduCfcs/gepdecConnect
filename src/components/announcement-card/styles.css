@@ -8,6 +8,18 @@
   border: 1px solid #e8edf2;
   background: #fff;
   padding: 21px;
+  overflow: hidden;
+  position: relative;
+}
+
+.annoucement-card-highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #e98c20, #79c151);
 }
 
 .anc-title-cat-cont {
