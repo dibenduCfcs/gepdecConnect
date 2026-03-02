@@ -9,8 +9,12 @@ interface Props {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   title?: string;
   leftTitle?: string;
+  rightTitle?: string;
   headerBackground?: string;
   iconColor?: string;
+  showBottomBtn?: boolean;
+  icon?: string;
+  renderBottom?: () => React.ReactNode;
 }
 
 const SideBar: React.FC<Props> = ({
@@ -20,6 +24,10 @@ const SideBar: React.FC<Props> = ({
   headerBackground = "linear-gradient(135deg, #fff8ee 0%, #fffcf7 100%)",
   iconColor = "#E98C20",
   leftTitle = "",
+  rightTitle = "Filter",
+  showBottomBtn = true,
+  renderBottom,
+  icon,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -37,26 +45,41 @@ const SideBar: React.FC<Props> = ({
     return (
       <div className="sidebar-left-container" onClick={onClick}>
         <div className="sidebar-filter-head-con" style={{ background: headerBackground }}>
-          <FilterIcon color={iconColor} />
+          {icon ? (
+            <img src={icon} alt="" style={{ color: iconColor }} />
+          ) : (
+            <FilterIcon color={iconColor} />
+          )}
           <p>{title}</p>
         </div>
-        <div className="accordion-container">{children}</div>
-        {isMobile && (
+        <div
+          className="accordion-container"
+          style={{ marginBottom: showBottomBtn ? "52px" : "0px" }}
+        >
+          {children}
+        </div>
+        {isMobile && showBottomBtn && (
           <div className="btn-container">
-            <button
-              type="button"
-              className="btn btn-outline-warning btn-sm btn-custom"
-              onClick={() => setIsOpen(false)}
-            >
-              {"Clear"}
-            </button>
-            <button
-              type="button"
-              className="btn btn-warning btn-sm btn-custom"
-              onClick={() => setIsOpen(false)}
-            >
-              {"Apply"}
-            </button>
+            {renderBottom ? (
+              renderBottom()
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="btn btn-outline-warning btn-sm btn-custom"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {"Clear"}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-warning btn-sm btn-custom"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {"Apply"}
+                </button>
+              </>
+            )}
           </div>
         )}
       </div>
@@ -72,7 +95,7 @@ const SideBar: React.FC<Props> = ({
             className="btn btn-dark btn-sm btn-custom-sm"
             onClick={() => setIsOpen(true)}
           >
-            {"Filter"}
+            {rightTitle}
           </button>
         </div>
       )}

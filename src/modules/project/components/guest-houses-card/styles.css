@@ -1,0 +1,151 @@
+.gh-con {
+  position: relative;
+  display: flex;
+  background-color: #ffffff;
+  padding: 16px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 6px;
+}
+
+.gh-con::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #e98c20, #79c151);
+}
+
+.gh-img-title-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.gh-img-con {
+  display: flex;
+  width: 96px;
+  height: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 6px;
+  background: #f0f3f7;
+}
+.gh-img {
+  height: 64px;
+  flex-shrink: 1;
+  align-self: stretch;
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  border-radius: 6px;
+}
+
+.gh-title {
+  color: #121f0a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gh-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.gh-project-name-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.gh-direction {
+  width: 100%;
+}
+
+.gh-project-name {
+  color: #121f0a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gh-project-code {
+  color: #62748e;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.gh-personal-info-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+.gh-personal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.gh-btn-con {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.gh-button {
+  padding: 9px;
+}
+
+@media (max-width: 1092px) {
+  .gh-con {
+    flex-wrap: wrap;
+  }
+  .gh-img-title-con {
+    justify-content: flex-start;
+  }
+  .gh-project {
+    justify-content: flex-start;
+  }
+  .gh-personal-info-con {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .gh-con {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .gh-project-name-con {
+    gap: 2px;
+    align-items: flex-start;
+    width: unset;
+  }
+  .gh-project {
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .gh-direction {
+    width: unset;
+  }
+
+  .gh-personal-info-con {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .gh-personal-info {
+    width: unset;
+  }
+  .gh-btn-con {
+    width: unset;
+  }
+}

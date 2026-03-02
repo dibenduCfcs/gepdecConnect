@@ -2,6 +2,7 @@ import "./styles.css";
 
 interface DotProps {
   dotColor?: string;
+  size?: number;
 }
 interface Props extends DotProps {
   label?: string;
@@ -51,6 +52,16 @@ export const Badge: React.FC<Props> = (props) => {
   );
 };
 
-export const BadgeDot: React.FC<DotProps> = ({ dotColor }) => {
-  return <div className="badge-dot" style={{ background: dotColor }} />;
+export const BadgeDot: React.FC<DotProps> = ({ dotColor, size = 6 }) => {
+  return (
+    <div
+      style={{
+        background: dotColor,
+        width: `${size}px`,
+        height: `${size}px`,
+        borderRadius: `${size / 2}px`,
+        flexShrink: "0",
+      }}
+    />
+  );
 };

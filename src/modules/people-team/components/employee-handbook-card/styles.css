@@ -1,0 +1,55 @@
+.emp-hb-art-con {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emp-hb-art-title {
+  color: #121f0a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.emp-hb-art-des {
+  color: #62748e;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.emp-hb-accordion-title {
+  color: #121f0a;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22.5px;
+  text-transform: none;
+  padding: 13px 24px 13px 4px;
+}
+
+.emp-hb-accordion-header {
+  border-bottom: 1px solid #f0f2f5;
+  padding: 0px;
+}
+
+.emp-hb-accordion-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.emp-hb-sno {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  background: #e98c20;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 575px) {
+  .emp-hb-accordion-body {
+    gap: 12px;
+  }
+}

@@ -1,0 +1,114 @@
+.emp-tit-con {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.top-btn-con {
+  width: 213px;
+}
+
+.top-out-btn {
+  width: 40%;
+  background-color: #ffffff;
+}
+
+.top-btn {
+  width: calc(213px - 40%);
+}
+
+.mobile-bottom-btn {
+  width: 100%;
+}
+
+.emp-hb-top-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.emp-hn-hoilday-type-con {
+  background-color: #f7f8fa;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.emp-hb-render-hoilday-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.emp-hb-hoilday-type-name {
+  color: #62748e;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.emp-hn-hoilday-con {
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.emp-hb-render-hoilday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.emp-hb-render-date {
+  color: #121f0a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.emp-hb-render-title {
+  color: #121f0a;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.emp-hb-render-day {
+  color: #62748e;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.ack-con {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 25px;
+  gap: 12px;
+}
+
+.ack-con h3 {
+  color: #121f0a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ack-con p {
+  color: #62748e;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.ack-btn {
+  width: 140px;
+}

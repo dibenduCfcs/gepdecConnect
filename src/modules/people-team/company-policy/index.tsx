@@ -190,7 +190,7 @@ const CompanyPolicy = () => {
         ]}
       />
       <TitleContainer titleFirst="Company" titleLast="Policy">
-        <div className="view-toggle d-inline-flex p-1 rounded bg-light">
+        <div className="view-toggle d-inline-flex p-1 rounded bg-light cmp-hidden">
           <button
             className={`btn btn-sm ${view === "grid" ? "active-view" : ""}`}
             onClick={() => setView("grid")}

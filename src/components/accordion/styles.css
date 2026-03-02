@@ -48,7 +48,6 @@
   display: none !important;
 }
 
-/* layout */
 .custom-accordion-btn {
   display: flex;
   align-items: center;
@@ -71,4 +70,16 @@
 
 .accordion-body {
   padding: 0 auto !important;
+}
+
+.accordion-title-con {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .accordion-title-con {
+    gap: 8px;
+  }
 }

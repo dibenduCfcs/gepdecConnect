@@ -1,6 +1,8 @@
 import "./styles.css";
 interface Props {
-  icon?: string;
+  className?: string;
+  icon?: string | React.ElementType;
+  iconColor?: string;
   label?: string;
   date?: string;
   labelColor?: string;
@@ -8,15 +10,22 @@ interface Props {
 }
 
 const DateCon: React.FC<Props> = ({
-  icon,
+  className = "",
+  icon: Icon,
+  iconColor = "#ffffff",
   date,
   label,
   labelColor = "#62748e",
   dateColor = "#62748e",
 }) => {
   return (
-    <div className="date-con">
-      <img src={icon} alt="date-icon" />
+    <div className={`date-con ${className}`}>
+      {Icon &&
+        (typeof Icon === "string" ? (
+          <img src={Icon} alt="date-icon" />
+        ) : (
+          <Icon color={iconColor} />
+        ))}
       <span className="date-value" style={{ color: dateColor }}>
         {label && (
           <span style={{ color: labelColor }}>

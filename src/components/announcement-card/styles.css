@@ -1,4 +1,4 @@
-.it-annoucement-card {
+.annoucement-card {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -8,16 +8,28 @@
   border: 1px solid #e8edf2;
   background: #fff;
   padding: 21px;
+  overflow: hidden;
+  position: relative;
 }
 
-.it-anc-title-cat-cont {
+.annoucement-card-highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #e98c20, #79c151);
+}
+
+.anc-title-cat-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.it-anc-title {
+.anc-title {
   display: flex;
   width: 100%;
   color: #121f0a;
@@ -26,7 +38,7 @@
   line-height: 22px;
 }
 
-.it-anc-round-card-con {
+.anc-round-card-con {
   display: flex;
   width: auto;
   padding: 2px 8px;
@@ -37,14 +49,14 @@
   background: #fff4e5;
 }
 
-.it-anc-dot {
+.anc-dot {
   width: 6px;
   height: 6px;
   border-radius: 3px;
   background: #e98c20;
 }
 
-.inc-anc-label {
+.anc-label {
   color: #c4710a;
   width: 100%;
   font-size: 12px;
@@ -53,7 +65,7 @@
   white-space: nowrap;
 }
 
-.it-anc-mis {
+.anc-mis {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -62,21 +74,21 @@
   margin-bottom: 12px;
 }
 
-.it-anc-date-con {
+.anc-date-con {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
-.it-anc-date {
+.anc-date {
   color: #62748e;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
 }
 
-.it-anc-description {
+.anc-description {
   color: #62748e;
   font-size: 14px;
   font-weight: 400;
@@ -84,17 +96,40 @@
 }
 
 @media (max-width: 575px) {
-  .it-anc-description {
+  .anc-description {
     font-size: 12px;
   }
-  .it-anc-title {
+  .anc-title {
     font-size: 14px;
   }
-  .inc-anc-label {
+  .anc-label {
     font-size: 12px;
     white-space: unset;
   }
-  .it-anc-date {
+  .anc-date {
     font-size: 11px;
   }
+}
+
+.anc-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.anc-filter-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anc-filter-con span {
+  color: #9aa5b8;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+.anc-filter-con span:last-of-type {
+  color: #62748e;
+  font-weight: 500;
 }
