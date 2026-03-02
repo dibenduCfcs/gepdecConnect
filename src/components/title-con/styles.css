@@ -5,12 +5,15 @@
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .ttle-con h1 {
   font-size: 30px;
   font-weight: 700;
   line-height: 36px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .ttle-first {
@@ -22,7 +25,20 @@
 }
 
 @media (max-width: 768px) {
-  .ttle-con {
+  .ttle-active {
+    display: flex;
+  }
+  .ttle-in-active {
     display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .ttle-con {
+    margin: 0 15px 12px 15px;
+  }
+  .ttle-con h1 {
+    font-size: 22px;
+    line-height: 18px;
   }
 }

@@ -1,5 +1,5 @@
 .project-card-container {
-  max-width: 442px;
+  width: clamp(270px, 35vw, 432px);
   display: flex;
   flex-direction: column;
   padding: 1px;
@@ -9,10 +9,16 @@
   margin: 0 8px;
 }
 
+/*  width: 434px;*/
+
 .project-icon {
-  height: 229px;
+  padding: 10px;
+  height: clamp(170px, 18vw, 229px);
   border-radius: 14px 14px 0px 0px;
   object-fit: fill;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .project-bottom-container {
   display: flex;
@@ -57,12 +63,26 @@
   line-height: 20px;
 }
 
+@media (max-width: 992px) {
+  .project-title {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .project-location {
+    font-size: 12px;
+  }
+  .project-view-report {
+    padding: 6px 0;
+    border-radius: 6px;
+  }
+}
+
 @media (max-width: 575px) {
   .project-card-container {
-    max-width: 250px;
+    width: 300px;
   }
   .project-icon {
-    height: 178px;
+    height: 200px;
     border-radius: 8px 8px 0px 0px;
   }
   .project-title {

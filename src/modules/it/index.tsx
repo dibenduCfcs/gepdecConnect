@@ -9,7 +9,8 @@ import "./styles.css";
 import Container from "../../components/container";
 import TitleContainer from "../../components/title-con";
 import AnnouncementCard from "../../components/announcement-card";
-
+import { useState } from "react";
+import Pagination from "../../components/pagination";
 const itAnnouncementData = [
   {
     id: 1,
@@ -157,6 +158,8 @@ const statusData = [
 ];
 
 const ITAnnouncements = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <div className="it-anc max-width-screen">
       <Breadcrmb
@@ -214,6 +217,11 @@ const ITAnnouncements = () => {
               return <AnnouncementCard key={item.id} {...item} />;
             })}
           </div>
+          <Pagination
+            currentPage={pageNumber}
+            onChange={(page) => setPageNumber(page)}
+            maxPage={4}
+          />
         </div>
       </Container>
     </div>

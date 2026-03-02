@@ -9,6 +9,8 @@ import ProjectCard from "../../components/project-card";
 import Map from "../../components/map";
 import CalloutCard from "./components/callout-card";
 import LatestAnnoucementCard from "./components/latest-annoucement-card";
+import { useState } from "react";
+import { useWindowDimension } from "../../hook";
 
 const impNotice = [
   {
@@ -168,6 +170,12 @@ const sliderSettings: Settings = {
 };
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useWindowDimension(() => {
+    const isMobile = window.innerWidth < 768;
+    setIsMobile(isMobile);
+  });
   const getCalloutType = (priority: number) => {
     switch (priority) {
       case 1:
@@ -203,6 +211,8 @@ const Home = () => {
     );
   };
 
+  const SliderCom = isMobile ? "div" : Slider;
+
   const renderImpNotice = () => {
     return (
       <div className="imp-notice">
@@ -233,11 +243,14 @@ const Home = () => {
       </div>
       <div className="project-updates">
         <h2 className="project-updates-title">{"Weekly Project Updates"}</h2>
-        <Slider {...sliderSettings} className="custom-slider">
+        <SliderCom
+          {...sliderSettings}
+          className={`${isMobile ? "mobile-scroll" : "custom-slider"}`}
+        >
           {projectUpdates.map((item) => (
             <ProjectCard key={item.projectId} {...item} />
           ))}
-        </Slider>
+        </SliderCom>
       </div>
       <Map />
     </div>

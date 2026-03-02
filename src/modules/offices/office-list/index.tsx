@@ -3,40 +3,10 @@ import Breadcrmb from "../../../components/breadcrmb/Breadcrmb";
 import DropdownBox from "../../../components/dropdown-box";
 import Filter from "../../../components/filter";
 import InputBox from "../../../components/input-box";
+import { stateList } from "../../../static/data";
 import CorporateCard from "../components/corporate-card";
 import OfficeCard from "../components/office-card/OfficeCard";
 import "./styles.css";
-
-const stateList = [
-  { id: 1, value: "Andhra Pradesh" },
-  { id: 2, value: "Arunachal Pradesh" },
-  { id: 3, value: "Assam" },
-  { id: 4, value: "Bihar" },
-  { id: 5, value: "Chhattisgarh" },
-  { id: 6, value: "Goa" },
-  { id: 7, value: "Gujarat" },
-  { id: 8, value: "Haryana" },
-  { id: 9, value: "Himachal Pradesh" },
-  { id: 10, value: "Jharkhand" },
-  { id: 11, value: "Karnataka" },
-  { id: 12, value: "Kerala" },
-  { id: 13, value: "Madhya Pradesh" },
-  { id: 14, value: "Maharashtra" },
-  { id: 15, value: "Manipur" },
-  { id: 16, value: "Meghalaya" },
-  { id: 17, value: "Mizoram" },
-  { id: 18, value: "Nagaland" },
-  { id: 19, value: "Odisha" },
-  { id: 20, value: "Punjab" },
-  { id: 21, value: "Rajasthan" },
-  { id: 22, value: "Sikkim" },
-  { id: 23, value: "Tamil Nadu" },
-  { id: 24, value: "Telangana" },
-  { id: 25, value: "Tripura" },
-  { id: 26, value: "Uttar Pradesh" },
-  { id: 27, value: "Uttarakhand" },
-  { id: 28, value: "West Bengal" },
-];
 
 const officeType = [
   { id: 1, value: "Head Office" },

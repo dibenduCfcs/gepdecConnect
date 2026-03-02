@@ -237,7 +237,7 @@ const CompanyPolicy = () => {
             />
           </Label>
         </SideBar>
-        <div className={view === "grid" ? "right-container-grid" : "right-container"}>
+        <div className={view === "grid" ? "right-container-grid grid-2" : "right-container"}>
           {companyPolicyData.map((policy) => (
             <CompanyPolicyCard
               key={policy.id}

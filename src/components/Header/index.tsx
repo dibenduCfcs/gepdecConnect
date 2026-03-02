@@ -1,19 +1,38 @@
 import "./styles.css";
 import logo from "../../assets/logo.svg";
-import { useMenuContext } from "../../context/MenuContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { navItems } from "../../static/data";
 
-const navItems = [
-  { id: 1, label: "HOME", hasArrow: false, route: "/" },
-  { id: 2, label: "OFFICES", hasArrow: true, route: "/offices" },
-  { id: 3, label: "IT", hasArrow: true, route: "/it" },
-  { id: 4, label: "PEOPLE TEAM", hasArrow: true, route: "/people-team" },
-  { id: 5, label: "PROJECTS", hasArrow: true, route: "/projects" },
-];
+const NavBarItem = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  return (
+    <nav className="header-nav">
+      {navItems.map(({ label, hasArrow, route }) => (
+        <span
+          key={label}
+          className={`header-nav-item ${
+            route === "/"
+              ? location.pathname === "/"
+                ? "active"
+                : ""
+              : location.pathname.startsWith(route)
+                ? "active"
+                : ""
+          }`}
+          onClick={() => {
+            navigate(route);
+          }}
+        >
+          {label}
+          {hasArrow && <i className="fa-solid fa-chevron-down"></i>}
+        </span>
+      ))}
+    </nav>
+  );
+};
 
 const Header = () => {
-  const { activeMenu, setActiveMenu } = useMenuContext();
-  const navigate = useNavigate();
   return (
     <header className="header-bar max-width-screen">
       <div className="header-left">
@@ -22,23 +41,7 @@ const Header = () => {
           <span className="brand-sub">CONNECT</span>
         </div>
       </div>
-
-      <nav className="header-nav" aria-label="Primary">
-        {navItems.map(({ id, label, hasArrow, route }) => (
-          <span
-            key={label}
-            className={`header-nav-item  ${activeMenu.id === id ? "active" : ""}`}
-            onClick={() => {
-              setActiveMenu({ id, label });
-              navigate(route);
-            }}
-          >
-            {label}
-            {hasArrow && <i className="fa-solid fa-chevron-down"></i>}
-          </span>
-        ))}
-      </nav>
-
+      <NavBarItem />
       <div className="header-right">
         <button type="button" className="bell-btn" aria-label="Notifications">
           <i className="fa-regular fa-bell fa-lg"></i>
