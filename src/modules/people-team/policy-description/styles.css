@@ -1,0 +1,14 @@
+.pd-btn {
+  display: flex;
+  padding: 10px 20px;
+  align-items: flex-start;
+  flex-shrink: 0;
+  color: var(--black, #121f0a);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pd-btn.active {
+  border-bottom: 2px solid var(--black, #121f0a);
+}

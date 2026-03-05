@@ -34,22 +34,24 @@ const NavBarItem = () => {
 
 const Header = () => {
   return (
-    <header className="header-bar max-width-screen">
-      <div className="header-left">
-        <div className="brand-text">
-          <img src={logo} alt="logo" className="logo" />
-          <span className="brand-sub">CONNECT</span>
+    <header className="header-bar">
+      <div className="header-bar-child max-width-screen">
+        <div className="header-left">
+          <div className="brand-text">
+            <img src={logo} alt="logo" className="logo" />
+            <span className="brand-sub">CONNECT</span>
+          </div>
         </div>
-      </div>
-      <NavBarItem />
-      <div className="header-right">
-        <button type="button" className="bell-btn" aria-label="Notifications">
-          <i className="fa-regular fa-bell fa-lg"></i>
-          <span className="bell-dot" />
-        </button>
-        <button type="button" className="avatar-btn" aria-label="Profile">
-          CF
-        </button>
+        <NavBarItem />
+        <div className="header-right">
+          <button type="button" className="bell-btn" aria-label="Notifications">
+            <i className="fa-regular fa-bell fa-lg"></i>
+            <span className="bell-dot" />
+          </button>
+          <button type="button" className="avatar-btn" aria-label="Profile">
+            CF
+          </button>
+        </div>
       </div>
     </header>
   );

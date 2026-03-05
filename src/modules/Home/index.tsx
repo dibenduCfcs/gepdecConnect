@@ -198,8 +198,9 @@ const Home = () => {
           </div>
         </div>
         <div className="latest-anncoucement-container">
-          {latestAnnouncement.map((item) => (
+          {latestAnnouncement.map((item, index) => (
             <LatestAnnoucementCard
+              key={index}
               date={item.date}
               department={item.department}
               title={item.title}

@@ -1,0 +1,31 @@
+.login-sso-btn {
+  display: flex;
+  width: clamp(343px, 50vw, 416px);
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 207px;
+  gap: 12px;
+  border: 1px solid #c3bfbf;
+  background: #fff;
+  margin-top: 25px;
+  border-radius: 8px;
+}
+
+.login-sso-btn-text {
+  color: #5e5e5e;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.lg-forgot-btn {
+  color: var(--black, #121f0a);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}

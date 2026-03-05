@@ -7,6 +7,9 @@ import { Badge } from "../../../../components/badge";
 import DateCon from "../../../../components/date-con";
 import "./styles.css";
 import { format } from "date-fns";
+import DownloadIcon from "../../../../assets/custom-svg/download";
+import OpenEye from "../../../../assets/custom-svg/openEye";
+import colors from "../../../../static/colors";
 interface Props {
   id: number;
   title: string;
@@ -17,27 +20,38 @@ interface Props {
   lastUpdated: string;
   appliesTo: { id: number; value: string }[];
   description: string;
+  onViewPress?: () => void;
 }
 const CompanyPolicyCard: React.FC<Props> = (props) => {
   return (
     <div className="company-policy-card">
-      <div className="custom-row gap-2 flex-wrap">
-        <Badge
-          label={props.category}
-          showIcon
-          icon={TagIcon}
-          color="#4338CA"
-          backgroundColor="#EEF2FF"
-        />
-        {props.acknowledgmentRequired && (
+      <div className="custom-row gap-2 justify-content-between align-items-center">
+        <div className="custom-row gap-2 flex-wrap">
           <Badge
-            label="Acknowledgment Required"
+            label={props.category}
             showIcon
-            icon={InfoIcon}
-            color="#C2410C"
-            backgroundColor="#FFF7ED"
+            icon={TagIcon}
+            color={colors.background}
+            backgroundColor={colors.badgeColor}
+            borderColor={colors.borderColor}
           />
-        )}
+          {props.acknowledgmentRequired && (
+            <Badge
+              label="Acknowledgment Required"
+              showIcon
+              icon={InfoIcon}
+              color={colors.background}
+              backgroundColor={colors.badgeColor}
+              borderColor={colors.borderColor}
+            />
+          )}
+        </div>
+        <Badge
+          label={"Active"}
+          color={colors.background}
+          backgroundColor={colors.badgeColor}
+          borderColor={colors.borderColor}
+        />
       </div>
       <div className="custom-row gap-2 flex-nowrap">
         <img src={doc} alt="" className="cm-policy-icon" />
@@ -47,7 +61,13 @@ const CompanyPolicyCard: React.FC<Props> = (props) => {
         </div>
       </div>
       <div className="custom-row gap-3 flex-wrap cmp-mis-con">
-        <Badge label={props.version} backgroundColor="#F0F2F5" color="#62748E" isRounded={false} />
+        <Badge
+          label={props.version}
+          color={colors.background}
+          backgroundColor={colors.badgeColor}
+          borderColor={colors.borderColor}
+          isRounded={false}
+        />
         <div className="custom-row gap-3 flex-nowrap">
           <DateCon
             icon={calendar}
@@ -66,15 +86,21 @@ const CompanyPolicyCard: React.FC<Props> = (props) => {
         {props.appliesTo.map((item) => (
           <Badge
             label={item.value}
-            backgroundColor="#F9FAFB"
-            color="#62748E"
-            borderColor="#E5E7EB"
+            color={colors.background}
+            backgroundColor={colors.badgeColor}
+            borderColor={colors.borderColor}
           />
         ))}
       </div>
       <div className="custom-row justify-content-between gap-3">
-        <button className="base-button w-50">View Policy</button>
-        <button className="base-outline-button w-50">Download</button>
+        <button className="base-button badge-con badge-text w-50" onClick={props.onViewPress}>
+          <OpenEye color="#121F0A" />
+          View Policy
+        </button>
+        <button className="base-outline-button badge-con badge-text w-50">
+          <DownloadIcon color="#121F0A" />
+          Download
+        </button>
       </div>
     </div>
   );

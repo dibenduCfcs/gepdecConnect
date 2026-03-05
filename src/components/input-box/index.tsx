@@ -1,49 +1,33 @@
 import "./styles.css";
-import { useEffect, useId, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import { useId } from "react";
+import type { ChangeEventHandler, CSSProperties, ReactNode } from "react";
+import { useIsMobileWindow } from "../../hook";
 
 type InputBoxProps = {
   inputPlaceholder?: string;
   inputValue?: string;
-  onInputChange?: (value: string) => void;
+  type?: React.HTMLInputTypeAttribute;
+  name?: string;
+  onInputChange?: ChangeEventHandler<HTMLInputElement>;
   renderLeft?: (isMobile: boolean) => ReactNode;
   renderRight?: (isMobile: boolean) => ReactNode;
   width?: CSSProperties["width"];
   maxWidth?: CSSProperties["maxWidth"];
 };
 
-const MOBILE_BREAKPOINT = 768;
-
 const InputBox = ({
-  inputPlaceholder = "Search projects...",
+  inputPlaceholder = "",
   inputValue,
   onInputChange,
   renderLeft,
   renderRight,
   width,
   maxWidth,
+  type = "text",
+  name = "email",
 }: InputBoxProps) => {
-  const [localValue, setLocalValue] = useState("");
   const inputId = useId();
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined"
-      ? window.innerWidth <= MOBILE_BREAKPOINT
-      : false,
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleChange = (value: string) => {
-    setLocalValue(value);
-    onInputChange?.(value);
-  };
+  const isMobile = useIsMobileWindow();
 
   const controlStyle: CSSProperties = {
     width: width ?? "100%",
@@ -52,22 +36,19 @@ const InputBox = ({
 
   return (
     <div className="input-box-controls" style={controlStyle}>
-      {renderLeft && (
-        <div className="input-box-controls-left">{renderLeft(isMobile)}</div>
-      )}
+      {renderLeft && <div className="input-box-controls-left">{renderLeft(isMobile)}</div>}
       <label className="input-box-input-wrap" htmlFor={inputId}>
-        <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
+        {type === "search" && <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />}
         <input
           id={inputId}
-          type="text"
-          value={inputValue !== undefined ? inputValue : localValue}
+          type={type}
+          name={name}
+          value={inputValue}
           placeholder={inputPlaceholder}
-          onChange={(event) => handleChange(event.target.value)}
+          onChange={onInputChange}
         />
       </label>
-      {renderRight && (
-        <div className="input-box-controls-right">{renderRight(isMobile)}</div>
-      )}
+      {renderRight && <div className="input-box-controls-right">{renderRight(isMobile)}</div>}
     </div>
   );
 };

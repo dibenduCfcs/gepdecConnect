@@ -10,6 +10,8 @@ import CompanyPolicyCard from "../components/company-policy-card";
 import grid from "../../../assets/image/grid.png";
 import list from "../../../assets/image/list.png";
 import "./styles.css";
+import FilterCount from "../../../components/filter-count";
+import { useNavigate } from "react-router-dom";
 
 const policyCategoryData = [
   { id: 1, value: "Code of Conduct" },
@@ -179,6 +181,7 @@ const companyPolicyData = [
   },
 ];
 const CompanyPolicy = () => {
+  const navigate = useNavigate();
   const [view, setView] = useState<"grid" | "list">("grid");
   return (
     <div className="max-width-screen">
@@ -237,21 +240,37 @@ const CompanyPolicy = () => {
             />
           </Label>
         </SideBar>
-        <div className={view === "grid" ? "right-container-grid grid-2" : "right-container"}>
-          {companyPolicyData.map((policy) => (
-            <CompanyPolicyCard
-              key={policy.id}
-              id={policy.id}
-              title={policy.title}
-              category={policy.category}
-              acknowledgmentRequired={policy.acknowledgmentRequired}
-              version={policy.version}
-              effectiveDate={policy.effectiveDate}
-              lastUpdated={policy.lastUpdated}
-              appliesTo={policy.appliesTo}
-              description={policy.description}
-            />
-          ))}
+        <div className={"right-container"}>
+          <div className="anc-filter-con">
+            <FilterCount count={8} totalCount={8} color="#121F0A" />
+            <div className="anc-filter-con">
+              <span>
+                {"Sorted by:  "}
+                <span>{"Newest First"}</span>
+              </span>
+            </div>
+          </div>
+          <div
+            className={view === "grid" ? "anc-list-container-grid grid-2" : "anc-list-container"}
+          >
+            {companyPolicyData.map((policy) => (
+              <CompanyPolicyCard
+                key={policy.id}
+                id={policy.id}
+                title={policy.title}
+                category={policy.category}
+                acknowledgmentRequired={policy.acknowledgmentRequired}
+                version={policy.version}
+                effectiveDate={policy.effectiveDate}
+                lastUpdated={policy.lastUpdated}
+                appliesTo={policy.appliesTo}
+                description={policy.description}
+                onViewPress={() => {
+                  navigate(`/people-team/company-policy/policy-description`, { state: policy });
+                }}
+              />
+            ))}
+          </div>
         </div>
       </Container>
     </div>
