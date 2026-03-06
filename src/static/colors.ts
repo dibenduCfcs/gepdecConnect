@@ -21,4 +21,6 @@ export default {
   danger: "#fb2c36",
   info: "#336aea",
   warning: "#fe9a00",
+  F0F2F5: "#F0F2F5",
+  white: "#ffffff",
 };

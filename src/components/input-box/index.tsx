@@ -23,7 +23,7 @@ const InputBox = ({
   renderRight,
   width,
   maxWidth,
-  type = "text",
+  type = "search",
   name = "email",
 }: InputBoxProps) => {
   const inputId = useId();

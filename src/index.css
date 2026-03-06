@@ -224,3 +224,86 @@ button {
   padding: 0px;
   margin: 0px;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+table tr > * {
+  padding: 11px 17px;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+}
+
+table th {
+  color: #121f0a;
+  font-size: 12px;
+  font-weight: 700;
+  background: #f9fafb;
+}
+
+table td {
+  color: #4a5568;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+table tbody tr:hover {
+  background: #f9fafb;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  table thead {
+    display: none;
+  }
+
+  table,
+  table tbody,
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+
+  table td:first-child {
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  table td:last-child {
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #121f0a;
+  }
+
+  table tbody td:nth-child(even) {
+    background-color: #fafbfc;
+  }
+
+  table tbody td:nth-child(odd) {
+    background-color: #ffffff;
+  }
+}

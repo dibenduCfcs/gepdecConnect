@@ -1,5 +1,4 @@
 import Breadcrmb from "../../components/breadcrmb/Breadcrmb";
-import FilterCount from "../../components/filter-count";
 import Accordion from "../../components/accordion";
 import CheckBox from "../../components/check-box";
 import RadioButton from "../../components/radio-button";
@@ -11,6 +10,7 @@ import TitleContainer from "../../components/title-con";
 import AnnouncementCard from "../../components/announcement-card";
 import { useState } from "react";
 import Pagination from "../../components/pagination";
+import FilterSortBar from "../../components/filter-sort-bar";
 const itAnnouncementData = [
   {
     id: 1,
@@ -202,16 +202,7 @@ const ITAnnouncements = () => {
         </SideBar>
 
         <div className="right-container">
-          <div className="anc-filter-con">
-            <FilterCount count={8} totalCount={8} color="#121F0A" />
-            <div className="anc-filter-con">
-              <span>
-                {"Sorted by:  "}
-                <span>{"Newest First"}</span>
-              </span>
-            </div>
-          </div>
-
+          <FilterSortBar count={8} totalCount={8} sortByName="Newest First" />
           <div className="anc-list-container">
             {itAnnouncementData.map((item) => {
               return <AnnouncementCard key={item.id} {...item} />;

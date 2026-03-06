@@ -2,7 +2,7 @@ import AnnouncementCard from "../../../components/announcement-card";
 import Breadcrmb from "../../../components/breadcrmb/Breadcrmb";
 import Container from "../../../components/container";
 import DropdownBox from "../../../components/dropdown-box";
-import FilterCount from "../../../components/filter-count";
+import FilterSortBar from "../../../components/filter-sort-bar";
 import InputBox from "../../../components/input-box";
 import Label from "../../../components/label";
 import RadioButton from "../../../components/radio-button";
@@ -147,12 +147,7 @@ const ProjectAnnoucement = () => {
           </Label>
         </SideBar>
         <div className="right-container">
-          <div className="anc-filter-con">
-            <FilterCount count={8} totalCount={8} color="#121F0A" />
-            <div className="anc-filter-con">
-              <span>{"8 results"}</span>
-            </div>
-          </div>
+          <FilterSortBar count={8} totalCount={8} sortByName={"Newest First"} />
           <div className="anc-list-container">
             {projectAnnouncementData.map((item) => {
               return <AnnouncementCard key={item.id} cardType="Project" {...item} />;

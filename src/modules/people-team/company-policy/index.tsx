@@ -10,8 +10,8 @@ import CompanyPolicyCard from "../components/company-policy-card";
 import grid from "../../../assets/image/grid.png";
 import list from "../../../assets/image/list.png";
 import "./styles.css";
-import FilterCount from "../../../components/filter-count";
 import { useNavigate } from "react-router-dom";
+import FilterSortBar from "../../../components/filter-sort-bar";
 
 const policyCategoryData = [
   { id: 1, value: "Code of Conduct" },
@@ -241,15 +241,7 @@ const CompanyPolicy = () => {
           </Label>
         </SideBar>
         <div className={"right-container"}>
-          <div className="anc-filter-con">
-            <FilterCount count={8} totalCount={8} color="#121F0A" />
-            <div className="anc-filter-con">
-              <span>
-                {"Sorted by:  "}
-                <span>{"Newest First"}</span>
-              </span>
-            </div>
-          </div>
+          <FilterSortBar count={8} totalCount={8} sortByName={"Newest First"} />
           <div
             className={view === "grid" ? "anc-list-container-grid grid-2" : "anc-list-container"}
           >

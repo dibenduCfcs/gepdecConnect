@@ -12,6 +12,7 @@ import Login from "./modules/onboarding/login";
 import ForgetPassword from "./modules/onboarding/forgot-password";
 import "./App.css";
 import PolicyDescription from "./modules/people-team/policy-description";
+import InternalJobRefferal from "./modules/people-team/internal-job-refferal";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="company-policy" element={<CompanyPolicy />} />
             <Route path="company-policy/policy-description" element={<PolicyDescription />} />
             <Route path="employee-handbook" element={<EmployeeHandbook />} />
+            <Route path="internal-job-refferal" element={<InternalJobRefferal />} />
           </Route>
           <Route path="projects">
             <Route index element={<Project />} />

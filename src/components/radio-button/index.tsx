@@ -1,16 +1,12 @@
 import { Form } from "react-bootstrap";
 import { useId, useState } from "react";
 import "./styles.css";
-
-interface Option {
-  id: number;
-  value: string;
-}
+import type { IdValue } from "../../static/interface";
 
 interface Props {
-  data?: Option[];
-  selected?: Option;
-  onChange?: (selected: Option) => void;
+  data?: IdValue[];
+  selected?: IdValue;
+  onChange?: (selected: IdValue) => void;
   name?: string;
   color?: string;
 }

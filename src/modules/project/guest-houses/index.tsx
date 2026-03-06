@@ -1,7 +1,7 @@
 import Breadcrmb from "../../../components/breadcrmb/Breadcrmb";
 import Container from "../../../components/container";
 import DropdownBox from "../../../components/dropdown-box";
-import FilterCount from "../../../components/filter-count";
+import FilterSortBar from "../../../components/filter-sort-bar";
 import InputBox from "../../../components/input-box";
 import Label from "../../../components/label";
 import SideBar from "../../../components/sidebar";
@@ -32,15 +32,7 @@ const GuestHouses = () => {
           </Label>
         </SideBar>
         <div className="right-container">
-          <div className="anc-filter-con">
-            <FilterCount count={8} totalCount={8} color="#121F0A" />
-            <div className="anc-filter-con">
-              <span>
-                {"Sorted by:  "}
-                <span>{"Newest First"}</span>
-              </span>
-            </div>
-          </div>
+          <FilterSortBar count={8} totalCount={8} sortByName={"Newest First"} />
           <div className="anc-list-container">
             <GuestHousesCard />
             <GuestHousesCard />

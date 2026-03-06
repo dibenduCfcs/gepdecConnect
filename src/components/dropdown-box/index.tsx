@@ -3,17 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
 type DropdownOption = {
-  id: number | string;
+  id: number;
   value: string;
 };
 
 type DropdownBoxProps = {
   title?: string;
   options: DropdownOption[];
-  value?: string;
-  defaultValue?: string;
+  value?: DropdownOption;
+  defaultValue?: DropdownOption;
   placeholder?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: DropdownOption) => void;
   renderLeft?: (isMobile: boolean) => ReactNode;
   renderRight?: (isMobile: boolean) => ReactNode;
   width?: CSSProperties["width"];
@@ -26,7 +26,7 @@ const DropdownBox = ({
   title = "",
   options,
   value,
-  defaultValue = "",
+  defaultValue,
   placeholder = "Select option",
   onChange,
   renderLeft,
@@ -35,14 +35,16 @@ const DropdownBox = ({
   maxWidth,
 }: DropdownBoxProps) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const [localValue, setLocalValue] = useState(defaultValue);
+
+  const [localValue, setLocalValue] = useState<DropdownOption | undefined>(defaultValue);
+
   const [isOpen, setIsOpen] = useState(false);
+
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined"
-      ? window.innerWidth <= MOBILE_BREAKPOINT
-      : false,
+    typeof window !== "undefined" ? window.innerWidth <= MOBILE_BREAKPOINT : false,
   );
 
+  // Detect mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
@@ -52,12 +54,10 @@ const DropdownBox = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Close dropdown on outside click / escape
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -70,6 +70,7 @@ const DropdownBox = ({
 
     document.addEventListener("mousedown", handleOutsideClick);
     document.addEventListener("keydown", handleEscape);
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
@@ -81,35 +82,30 @@ const DropdownBox = ({
     maxWidth: maxWidth ?? "100%",
   };
 
-  const selectedValue = value !== undefined ? value : localValue;
-  const hasOptions = options.length > 0;
-  const selectedOption = options.find(
-    (option) => option.value === selectedValue,
-  );
+  // Selected value (controlled or uncontrolled)
+  const selectedOption = value ?? localValue;
+
   const selectedLabel = selectedOption?.value ?? placeholder;
 
-  const handleSelect = (nextValue: string) => {
+  const hasOptions = options.length > 0;
+
+  const handleSelect = (option: DropdownOption) => {
     if (value === undefined) {
-      setLocalValue(nextValue);
+      setLocalValue(option);
     }
+
     setIsOpen(false);
-    onChange?.(nextValue);
+    onChange?.(option);
   };
 
   return (
     <div className="dropdown-box">
       {title && <div className="dropdown-box-title">{title}</div>}
+
       <div className="dropdown-box-controls">
-        {renderLeft && (
-          <div className="dropdown-box-controls-left">
-            {renderLeft(isMobile)}
-          </div>
-        )}
-        <div
-          className="dropdown-box-select-wrap"
-          ref={dropdownRef}
-          style={controlStyle}
-        >
+        {renderLeft && <div className="dropdown-box-controls-left">{renderLeft(isMobile)}</div>}
+
+        <div className="dropdown-box-select-wrap" ref={dropdownRef} style={controlStyle}>
           <button
             type="button"
             className="dropdown-box-trigger"
@@ -120,15 +116,17 @@ const DropdownBox = ({
           >
             <span>{selectedLabel}</span>
           </button>
+
           <i className="fa-solid fa-chevron-down" aria-hidden="true" />
+
           {isOpen && hasOptions && (
             <ul className="dropdown-box-menu" role="listbox">
               {options.map((option) => (
-                <li key={`${option.value}-${option.id}`}>
+                <li key={`${option.id}-${option.value}`}>
                   <button
                     type="button"
                     className="dropdown-box-option"
-                    onClick={() => handleSelect(option.value)}
+                    onClick={() => handleSelect(option)}
                   >
                     {option.value}
                   </button>
@@ -137,11 +135,8 @@ const DropdownBox = ({
             </ul>
           )}
         </div>
-        {renderRight && (
-          <div className="dropdown-box-controls-right">
-            {renderRight(isMobile)}
-          </div>
-        )}
+
+        {renderRight && <div className="dropdown-box-controls-right">{renderRight(isMobile)}</div>}
       </div>
     </div>
   );
