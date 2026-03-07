@@ -1,7 +1,6 @@
 .badge-container {
   display: flex;
   width: auto;
-  padding: 2px 8px;
   justify-content: center;
   align-items: center;
   gap: 6px;

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import "./styles.css";
 
 interface DotProps {
@@ -14,6 +15,7 @@ interface Props extends DotProps {
   dotColor?: string;
   borderColor?: string;
   isRounded?: boolean;
+  padding?: CSSProperties["padding"];
 }
 
 export const Badge: React.FC<Props> = (props) => {
@@ -27,6 +29,7 @@ export const Badge: React.FC<Props> = (props) => {
     icon: Icon,
     isRounded = true,
     borderColor,
+    padding = "2px 8px",
   } = props;
   return (
     <div
@@ -35,6 +38,7 @@ export const Badge: React.FC<Props> = (props) => {
         background: backgroundColor,
         borderRadius: isRounded ? "33554400px" : "4px",
         border: borderColor ? `1px solid ${borderColor}` : "none",
+        padding,
       }}
     >
       {showDot && <BadgeDot dotColor={dotColor} />}

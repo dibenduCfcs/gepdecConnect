@@ -15,6 +15,7 @@ import Label from "../../../components/label";
 import "./styles.css";
 import DropdownBox from "../../../components/dropdown-box";
 import JobRefferalCard from "../components/job-refferal-card";
+import { useNavigate } from "react-router-dom";
 
 interface FilterType {
   department: IdValue[];
@@ -205,6 +206,7 @@ const jobData = [
 ];
 
 const InternalJobRefferal = () => {
+  const navigate = useNavigate();
   const [filterData, setFilterData] = useState<FilterType>(initialFilterData);
   const [search, setSearch] = useState("");
   return (
@@ -284,6 +286,9 @@ const InternalJobRefferal = () => {
                 qualification={item.qualification}
                 employmentType={item.employmentType}
                 postedDate={item.postedDate}
+                onPress={() => {
+                  navigate("/people-team/internal-job-refferal/job-description", { state: item });
+                }}
               />
             ))}
           </div>

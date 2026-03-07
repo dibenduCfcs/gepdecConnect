@@ -4,6 +4,7 @@
   gap: 8px;
   min-width: 0;
   max-width: 100%;
+  background-color: #ffffff;
 }
 
 .dropdown-box-title {
@@ -40,7 +41,7 @@
   max-width: 100%;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  background: #fff;
+  background: inherit;
 }
 
 .dropdown-box-trigger {
@@ -54,6 +55,10 @@
   padding: 10px 34px 10px 12px;
   text-align: left;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
 }
 
 .dropdown-box-trigger:disabled {
@@ -101,6 +106,10 @@
 
 .dropdown-box-option:hover {
   background: #f3f4f6;
+}
+
+.dropdown-box-option-unselect {
+  color: #6b7280;
 }
 
 @media (max-width: 768px) {

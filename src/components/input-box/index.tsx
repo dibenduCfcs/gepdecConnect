@@ -8,11 +8,15 @@ type InputBoxProps = {
   inputValue?: string;
   type?: React.HTMLInputTypeAttribute;
   name?: string;
-  onInputChange?: ChangeEventHandler<HTMLInputElement>;
+  onInputChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   renderLeft?: (isMobile: boolean) => ReactNode;
   renderRight?: (isMobile: boolean) => ReactNode;
   width?: CSSProperties["width"];
   maxWidth?: CSSProperties["maxWidth"];
+  icon?: string;
+  className?: string;
+  multiline?: boolean;
+  rows?: number;
 };
 
 const InputBox = ({
@@ -25,6 +29,10 @@ const InputBox = ({
   maxWidth,
   type = "search",
   name = "email",
+  className = "",
+  icon,
+  multiline = false,
+  rows = 2,
 }: InputBoxProps) => {
   const inputId = useId();
   const isMobile = useIsMobileWindow();
@@ -35,18 +43,35 @@ const InputBox = ({
   };
 
   return (
-    <div className="input-box-controls" style={controlStyle}>
+    <div className={`input-box-controls ${className}`} style={controlStyle}>
       {renderLeft && <div className="input-box-controls-left">{renderLeft(isMobile)}</div>}
-      <label className="input-box-input-wrap" htmlFor={inputId}>
-        {type === "search" && <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />}
-        <input
-          id={inputId}
-          type={type}
-          name={name}
-          value={inputValue}
-          placeholder={inputPlaceholder}
-          onChange={onInputChange}
-        />
+      <label
+        className={`input-box-input-wrap ${multiline ? "input-box-input-wrap-multiline" : ""}`}
+        htmlFor={inputId}
+      >
+        {!multiline && type === "search" && (
+          <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
+        )}
+        {icon && <img src={icon} alt="icon" />}
+        {multiline ? (
+          <textarea
+            id={inputId}
+            name={name}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            onChange={onInputChange}
+            rows={rows}
+          />
+        ) : (
+          <input
+            id={inputId}
+            type={type}
+            name={name}
+            value={inputValue}
+            placeholder={inputPlaceholder}
+            onChange={onInputChange}
+          />
+        )}
       </label>
       {renderRight && <div className="input-box-controls-right">{renderRight(isMobile)}</div>}
     </div>

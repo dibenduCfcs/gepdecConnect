@@ -6,12 +6,12 @@ interface Props extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> 
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Overlay: React.FC<Props> = ({ isOpen = false, onClick, children, ...props }) => {
+const Overlay: React.FC<Props> = ({ isOpen = false, onClick, children, className, ...props }) => {
   if (!isOpen) return null;
 
   return (
     <div
-      className="overlay"
+      className={`overlay ${className}`}
       onClick={(e) => {
         onClick?.(e);
         e.stopPropagation();

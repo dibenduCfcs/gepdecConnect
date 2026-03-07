@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  background-color: #fff;
 }
 
 .input-box-controls-left,
@@ -30,7 +31,7 @@
   padding: 10px 12px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  background: #fff;
+  background: inherit;
 }
 
 .input-box-input-wrap i {
@@ -47,8 +48,32 @@
   font-size: 14px;
 }
 
+.input-box-input-wrap textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--background);
+  font-size: 14px;
+  resize: vertical;
+  line-height: 1.4;
+}
+
 .input-box-input-wrap input::placeholder {
   color: var(--text-secondary);
+}
+
+.input-box-input-wrap textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.input-box-input-wrap-multiline {
+  align-items: flex-start;
+}
+
+.input-box-input-wrap-multiline i,
+.input-box-input-wrap-multiline img {
+  margin-top: 3px;
 }
 
 @media (max-width: 768px) {

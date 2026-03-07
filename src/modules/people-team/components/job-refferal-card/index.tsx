@@ -8,7 +8,18 @@ import Seperator from "../../../../components/seperator";
 import DateCon from "../../../../components/date-con";
 import { Badge } from "../../../../components/badge";
 import colors from "../../../../static/colors";
-const JobRefferalCard = () => {
+
+interface Props {
+  onPress: () => void;
+  title: string;
+  department: string;
+  experience: string;
+  location: string;
+  qualification: string;
+  employmentType: string;
+  postedDate: string;
+}
+const JobRefferalCard: React.FC<Partial<Props>> = (props) => {
   const renderKeyValue = (title: string, icon: string) => {
     return (
       <div className="jr-key-value">
@@ -22,10 +33,7 @@ const JobRefferalCard = () => {
   return (
     <div className="job-refferal-con">
       <div className="custom-row justify-content-start align-items-center gap-3  w-100">
-        <div
-          className="
-        "
-        >
+        <div className="jrt-icon-con">
           <i className="fa-solid fa-building" />
         </div>
         <div>
@@ -48,7 +56,7 @@ const JobRefferalCard = () => {
       <Seperator />
       <div className="custom-row justify-content-between align-items-center w-100">
         <DateCon date="Posted 2 Mar 2026" icon={calendar} />
-        <button type="button" className="jr-apply-btn">
+        <button type="button" className="jr-apply-btn" onClick={props.onPress}>
           View Details &rarr;
         </button>
       </div>

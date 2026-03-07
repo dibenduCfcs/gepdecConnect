@@ -46,7 +46,7 @@ body {
 }
 
 body {
-  min-width: 320px;
+  min-width: 200px;
   overflow-x: hidden;
   background: var(--background-color);
   color: #111827;
@@ -70,6 +70,10 @@ h6 {
 .max-width-screen {
   max-width: 1440px;
   margin: auto;
+  padding: auto;
+}
+.max-mobile-width-screen {
+  max-width: 575px;
   padding: auto;
 }
 
@@ -191,7 +195,7 @@ button {
 }
 
 .base-button {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 9px 0;
@@ -205,7 +209,7 @@ button {
 }
 
 .base-outline-button {
-  display: inline-flex;
+  display: flex;
   padding: 9px 0;
   justify-content: center;
   align-items: center;

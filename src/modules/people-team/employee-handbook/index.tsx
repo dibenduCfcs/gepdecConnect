@@ -14,6 +14,7 @@ import CheckBox from "../../../components/check-box";
 import calendar from "../../../assets/calendar.svg";
 import DownloadIcon from "../../../assets/custom-svg/download";
 import PrintIcon from "../../../assets/custom-svg/print";
+import colors from "../../../static/colors";
 
 const employeeHandbookData = [
   {
@@ -365,13 +366,13 @@ const EmployeeHandbook = () => {
 
   const renderTopButton = () => {
     return (
-      <div className="d-flex gap-2 top-btn-con">
-        <button className="base-outline-button top-out-btn">
-          <PrintIcon />
+      <div className="top-btn-con">
+        <button className="top-out-btn">
+          <PrintIcon color={colors.background} />
           Print
         </button>
-        <button className="base-button top-btn">
-          <DownloadIcon />
+        <button className="top-out-btn">
+          <DownloadIcon color={colors.background} />
           Download PDF
         </button>
       </div>
